@@ -1,41 +1,78 @@
-# Real_estate_pipeline
-Real Estate Data Pipeline: End-to-end ETL pipeline extracting, transforming, and loading housing market data from Redfin into SQLite and AWS S3 using Python and pandas.
-# 🏡 Real Estate Data Pipeline
+# Housing Market Tracker - Real Estate Data Pipeline
 
-This project builds a complete data pipeline that extracts housing market data from Redfin, cleans and transforms the dataset, stores it in SQLite, and optionally uploads a versioned Parquet file to AWS S3. The pipeline is modular, using Python scripts organized by ETL phase.
+## Project Overview
 
-## 🔧 Tech Stack
-- Python 3.10
-- Pandas
-- SQLAlchemy (SQLite)
-- Parquet (via `pandas`)
-- AWS S3 (via Boto3)
-- Docker (optional)
-- Redfin Housing Market CSVs
+This project builds a modular, automated ETL pipeline to extract, transform, and load U.S. housing market data from Zillow’s ZHVI dataset. The pipeline stores cleaned data in a local SQLite database and uploads Parquet files to AWS S3 for further analysis and visualization.
 
-## 📁 Pipeline Structure
-```bash
+## Features
+
+- Extracts monthly housing price data at the ZIP code level
+- Cleans and reshapes wide-formatted CSV data into a long format
+- Calculates additional metrics such as monthly and year-over-year changes
+- Stores data in SQLite and saves Parquet files locally and on S3
+- Containerized with Docker for reproducibility
+- (Future) Supports automated orchestration with Airflow
+- (Future) Interactive dashboard for user-driven analysis
+
+## Project Structure
+
 real_estate_pipeline/
-├── data/                  # Raw CSVs from Redfin
 ├── etl/
-│   ├── extract.py         # Reads CSV
-│   ├── transform.py       # Cleans & reshapes data
-│   └── load.py            # Saves to SQLite & Parquet
+│ ├── extract.py # Data extraction logic
+│ ├── transform.py # Data cleaning and transformation
+│ └── load.py # Loading data to SQLite and S3
+├── main.py
 ├── config/
-│   └── settings.py        # AWS / DB paths
-├── output/                # Versioned Parquet outputs
-├── pipeline.py            # Runs full pipeline
-├── requirements.txt
-├── .env                   # AWS credentials (excluded from Git)
-└── README.md
+│ └── settings.py # Configuration for paths and credentials
+├── pipeline.py # Main script to run the full ETL process
+├── requirements.txt # Python dependencies
+├── Dockerfile # Docker container definition
+├── README.md # Project documentation
+└── .env # environment variables for AWS credentials
 
 
-## 📦 Example Output
-output/2025-08/redfin_data.parquet
+## Getting Started
 
-real_estate.db with a redfin_data table
+### Prerequisites
 
-## 🚀 Future Add-ons
-Dockerized container for deployment
-Airflow DAG for automation
-Visualizations of market trends
+- Python 3.10+
+- AWS account with access to an S3 bucket
+- Docker (for containerization)
+
+### Installation
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/real_estate_pipeline.git
+   cd real_estate_pipeline
+
+2. Add .env File
+AWS_ACCESS_KEY_ID=your-access-key
+AWS_SECRET_ACCESS_KEY=your-secret-key
+AWS_DEFAULT_REGION=us-west-1
+S3_BUCKET_NAME=your-s3-bucket-name
+
+3. Build the Docker Image
+docker build -t real-estate-pipeline .
+
+4. Run the Container
+docker run --env-file .env real-estate-pipeline
+
+📦 Dependencies
+Python 3.10 (via Docker)
+boto3 AWS SDK for uploading to S3
+pandas For data manipulation
+Install manually with:
+pip install -r requirements.txt
+
+🧪 Future Enhancements
+Build a Streamlit dashboard for visualization
+Integrate with Airflow for scheduling
+Add logging and unit tests
+Include validation rules for incoming data
+
+📜 License
+This project is for educational and personal portfolio use.
+
+🙋‍♀️ Author
+Hang Tran
