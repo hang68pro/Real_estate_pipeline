@@ -14,7 +14,7 @@ This project builds a modular, automated ETL pipeline to extract, transform, and
 - (Future) Supports automated orchestration with Airflow
 - (Future) Interactive dashboard for user-driven analysis
 
-## Project Structure
+# Project Structure
 
 real_estate_pipeline/
 ├── etl/
@@ -29,6 +29,7 @@ real_estate_pipeline/
 ├── Dockerfile # Docker container definition
 ├── README.md # Project documentation
 └── .env # environment variables for AWS credentials
+
 
 
 ## Getting Started
