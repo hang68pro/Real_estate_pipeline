@@ -16,6 +16,7 @@ This project builds a modular, automated ETL pipeline to extract, transform, and
 
 # Project Structure
 
+``` 
 real_estate_pipeline/
 ├── etl/
 │ ├── extract.py # Data extraction logic
@@ -29,8 +30,7 @@ real_estate_pipeline/
 ├── Dockerfile # Docker container definition
 ├── README.md # Project documentation
 └── .env # environment variables for AWS credentials
-
-
+```
 
 ## Getting Started
 
@@ -42,10 +42,7 @@ real_estate_pipeline/
 
 ### Installation
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/real_estate_pipeline.git
-   cd real_estate_pipeline
+1. Clone this repository
 
 2. Add .env File
 AWS_ACCESS_KEY_ID=your-access-key
