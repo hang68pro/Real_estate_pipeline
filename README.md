@@ -2,11 +2,11 @@
 
 ## Project Overview
 
-This project builds a modular, automated ETL pipeline to extract, transform, and load U.S. housing market data from Zillow’s ZHVI dataset. The pipeline stores cleaned data in a local SQLite database and uploads Parquet files to AWS S3 for further analysis and visualization.
+This project builds a modular, automated ETL pipeline to extract, transform, and load U.S. housing market data from Redfin dataset. The pipeline stores cleaned data in a local SQLite database and uploads Parquet files to AWS S3 for further analysis and visualization.
 
 ## Features
 
-- Extracts monthly housing price data at the ZIP code level
+- Extracts Redfin Monthly Housing Market Data at https://www.redfin.com/news/data-center/ 
 - Cleans and reshapes wide-formatted CSV data into a long format
 - Calculates additional metrics such as monthly and year-over-year changes
 - Stores data in SQLite and saves Parquet files locally and on S3
