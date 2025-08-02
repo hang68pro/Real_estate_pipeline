@@ -29,14 +29,13 @@ real_estate_pipeline/
 ├── .env                   # AWS credentials (excluded from Git)
 └── README.md
 
-📦 Example Output
+
+## 📦 Example Output
 output/2025-08/redfin_data.parquet
 
 real_estate.db with a redfin_data table
 
-🚀 Future Add-ons
+## 🚀 Future Add-ons
 Dockerized container for deployment
-
 Airflow DAG for automation
-
 Visualizations of market trends
